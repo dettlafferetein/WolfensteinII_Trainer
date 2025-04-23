@@ -25,8 +25,8 @@
 
 typedef struct {
 	short forward[3], backward[3], left[3], right[3], up[3], down[3], increase[3], decrease[3], god[3], ammo[3], fly[3], timer[3], time_increase[3], time_decrease[3], time_reset[3];
-	short save[5][3];
-	short load[5][3];
+	short save[6][3];
+	short load[6][3];
 } KEYBINDS;
 
 typedef struct {

@@ -281,6 +281,8 @@ INT_PTR CALLBACK KeybindsProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam
 			SetTextFromKeybind(hDlg, IDC_LOAD3, keybinds.load[3]);
 			SetTextFromKeybind(hDlg, IDC_SAVE4, keybinds.save[4]);
 			SetTextFromKeybind(hDlg, IDC_LOAD4, keybinds.load[4]);
+			SetTextFromKeybind(hDlg, IDC_SAVE5, keybinds.save[5]);
+			SetTextFromKeybind(hDlg, IDC_LOAD5, keybinds.load[5]);
 			SetTextFromKeybind(hDlg, IDC_TIME_INCREASE, keybinds.time_increase);
 			SetTextFromKeybind(hDlg, IDC_TIME_DECREASE, keybinds.time_decrease);
 			SetTextFromKeybind(hDlg, IDC_TIME_RESET, keybinds.time_reset);
@@ -383,6 +385,12 @@ INT_PTR CALLBACK KeybindsProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam
 						case IDC_LOAD4:
 							memcpy(&keybinds.load[4], &keybind, sizeof(keybind));
 							break;
+						case IDC_SAVE5:
+							memcpy(&keybinds.save[5], &keybind, sizeof(keybind));
+							break;
+						case IDC_LOAD5:
+							memcpy(&keybinds.load[5], &keybind, sizeof(keybind));
+							break;
 						case IDC_TIME_INCREASE:
 							memcpy(&keybinds.time_increase, &keybind, sizeof(keybind));
 							break;
@@ -411,7 +419,7 @@ INT_PTR CALLBACK KeybindsProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam
 		case WM_COMMAND: {
 			DWORD id = LOWORD(wParam);
 			switch (id) {
-				case IDC_FORWARD: case IDC_BACKWARD: case IDC_LEFT: case IDC_RIGHT: case IDC_UP: case IDC_DOWN: case IDC_INCREASE: case IDC_DECREASE: case IDC_GOD: case IDC_AMMO: case IDC_FLY: case IDC_TIMER: case IDC_SAVE0: case IDC_LOAD0: case IDC_SAVE1: case IDC_LOAD1:case IDC_SAVE2: case IDC_LOAD2: case IDC_SAVE3: case IDC_LOAD3: case IDC_SAVE4: case IDC_LOAD4: case IDC_TIME_INCREASE: case IDC_TIME_DECREASE: case IDC_TIME_RESET: {
+				case IDC_FORWARD: case IDC_BACKWARD: case IDC_LEFT: case IDC_RIGHT: case IDC_UP: case IDC_DOWN: case IDC_INCREASE: case IDC_DECREASE: case IDC_GOD: case IDC_AMMO: case IDC_FLY: case IDC_TIMER: case IDC_SAVE0: case IDC_LOAD0: case IDC_SAVE1: case IDC_LOAD1:case IDC_SAVE2: case IDC_LOAD2: case IDC_SAVE3: case IDC_LOAD3: case IDC_SAVE4: case IDC_LOAD4: case IDC_SAVE5: case IDC_LOAD5: case IDC_TIME_INCREASE: case IDC_TIME_DECREASE: case IDC_TIME_RESET: {
 					if (active_id) {
 						SetTextFromKeybind(hDlg, active_id, keybind);
 						SetKeybinds(&keybinds);
@@ -485,6 +493,12 @@ INT_PTR CALLBACK KeybindsProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam
 					break;
 				case IDC_LOAD4_CLEAR:
 					ClearKeybind(keybinds.load[4], IDC_LOAD4);
+					break;
+				case IDC_SAVE5_CLEAR:
+					ClearKeybind(keybinds.save[5], IDC_SAVE5);
+					break;
+				case IDC_LOAD5_CLEAR:
+					ClearKeybind(keybinds.load[5], IDC_LOAD5);
 					break;
 				case IDC_TIME_INCREASE_CLEAR:
 					ClearKeybind(keybinds.time_increase, IDC_TIME_INCREASE);
@@ -567,6 +581,12 @@ INT_PTR CALLBACK KeybindsProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam
 						break;
 					case IDC_LOAD4:
 						memcpy(&keybinds.load[4], &keybind, sizeof(keybind));
+						break;
+					case IDC_SAVE5:
+						memcpy(&keybinds.save[5], &keybind, sizeof(keybind));
+						break;
+					case IDC_LOAD5:
+						memcpy(&keybinds.load[5], &keybind, sizeof(keybind));
 						break;
 					case IDC_TIME_INCREASE:
 						memcpy(&keybinds.time_increase, &keybind, sizeof(keybind));
